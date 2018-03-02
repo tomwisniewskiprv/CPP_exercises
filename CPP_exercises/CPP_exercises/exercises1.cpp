@@ -8,11 +8,12 @@
 */
 #include "exercises1.h"
 using namespace std;
+#define _USE_MATH_DEFINES
 
 //-----------------------------------------------------------------------
 void list_exercises1() {
 
-	string options[] = { "3.4", "3.6","5.1","8.7","9.1","11.1","11.2","11.3","11.4","11.5","11.6" };
+	string options[] = { "3.4", "3.6","5.1","5.2", "7.5","8.7","9.1","11.1","11.2","11.3","11.4","11.5","11.6" };
 	cout << "Homework 1:" << endl;
 	int option = 0;
 
@@ -89,6 +90,48 @@ void exercise5_1() {
 
 }
 
+//-----------------------------------------------------------------------
+void exercise5_2() {
+
+	float radius, a, square;
+	const float PI = 3.141592;
+	cout << "Enter radius: ";
+	cin >> radius;
+	float P = PI * powf(radius, 2);
+	a = 2 * radius;
+	square = a * a;
+
+	cout << "Surface area: " << P << endl
+		<< "Square side : " << a << endl
+		<< "Square area : " << square << endl;
+
+	system("pause");
+}
+
+//-----------------------------------------------------------------------
+void exercise7_5() {
+	float hours;
+	float rate;
+
+	do {
+		cout << "How many hours ? :";
+		cin >> hours;
+		cout << "Rate ? :";
+		cin >> rate;
+
+		if (cin.fail()) {
+			cin.clear();	
+			cin.sync();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+		}
+		else {
+			break;
+		}
+	} while (1);
+
+	cout << "Daily gain: " << rate * 8 << endl;
+	cout << "Total gain: " << rate * hours << endl;
+}
 //-----------------------------------------------------------------------
 void exercise8_7() {
 	int calories = 1500;
@@ -281,34 +324,42 @@ void execute_exercise1(int arg) {
 		break;
 
 	case 4:
-		exercise8_7();
+		exercise5_2();
 		break;
 
 	case 5:
-		exercise9_1();
+		exercise7_5();
 		break;
 
 	case 6:
-		exercise11_1();
+		exercise8_7();
 		break;
 
 	case 7:
-		exercise11_2();
+		exercise9_1();
 		break;
 
 	case 8:
-		exercise11_3();
+		exercise11_1();
 		break;
 
 	case 9:
-		exercise11_4();
+		exercise11_2();
 		break;
 
 	case 10:
-		exercise11_5();
+		exercise11_3();
 		break;
 
 	case 11:
+		exercise11_4();
+		break;
+
+	case 12:
+		exercise11_5();
+		break;
+
+	case 13:
 		exercise11_6();
 		break;
 

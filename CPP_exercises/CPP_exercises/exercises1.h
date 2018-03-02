@@ -12,6 +12,7 @@ void execute_exercise1(int arg);
 void exercise3_4();
 void exercise3_6();
 void exercise5_1();
+void exercise5_2();
 void exercise8_7();
 void exercise9_1();
 
