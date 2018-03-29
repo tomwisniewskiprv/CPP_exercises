@@ -1,6 +1,6 @@
 /*
 	CPP EXERCISES
-	A series of programming exercises in C++ for the fourth semester of study.
+	A series of programming lab1_exs in C++ for the fourth semester of study.
 	Tomasz Wisniewski 2018.
 
 	Exercises 1 - Exercises from first class:
@@ -10,41 +10,10 @@
 using namespace std;
 #define _USE_MATH_DEFINES
 
-//-----------------------------------------------------------------------
-void list_exercises1() {
-
-	string options[] = { "3.4", "3.6","5.1","5.2", "7.5","8.7","9.1","11.1","11.2","11.3","11.4","11.5","11.6" };
-	cout << "Homework 1:" << endl;
-	int option = 0;
-
-	cout.setf(ios::left);
-	for (string str : options) {
-		cout << setw(3) << ++option << "| " << str << endl;
-	}
-
-	int action = 0;
-	do {
-		cout << setw(3) << ">";
-		cin >> action;
-
-		if (cin.fail() || action > option || action < 1) {
-			cin.clear();	// clear failbit , eofbit
-			cin.sync();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // !important for Visual Studio compiler...
-		}
-		else {
-			break;
-		}
-
-	} while (1);
-
-	execute_exercise1(action);
-
-}
 
 //-----------------------------------------------------------------------
-void exercise3_4() {
-	// exercise3_5 to liczby od najmniejszej do najwiêkszej np 1 5 9
+void lab1_ex3_4() {
+	// lab1_ex3_5 to liczby od najmniejszej do najwiêkszej np 1 5 9
 
 	cout << "Podaj liczby: ";
 	int x, y, z;
@@ -56,7 +25,7 @@ void exercise3_4() {
 }
 
 //-----------------------------------------------------------------------
-void exercise3_6() {
+void lab1_ex3_6() {
 	int i = 0x100;
 	cout << setw(4) << i << ' ' << bitset<32>(i) << endl;
 	i = i >> 2;
@@ -66,7 +35,7 @@ void exercise3_6() {
 }
 
 //-----------------------------------------------------------------------
-void exercise5_1() {
+void lab1_ex5_1() {
 
 	float h, a;
 	do {
@@ -91,10 +60,10 @@ void exercise5_1() {
 }
 
 //-----------------------------------------------------------------------
-void exercise5_2() {
+void lab1_ex5_2() {
 
 	float radius, a, square;
-	const float PI = 3.141592;
+	const float PI = 3.141592f;
 	cout << "Enter radius: ";
 	cin >> radius;
 	float P = PI * powf(radius, 2);
@@ -109,7 +78,7 @@ void exercise5_2() {
 }
 
 //-----------------------------------------------------------------------
-void exercise7_5() {
+void lab1_ex7_5() {
 	float hours;
 	float rate;
 
@@ -133,7 +102,7 @@ void exercise7_5() {
 	cout << "Total gain: " << rate * hours << endl;
 }
 //-----------------------------------------------------------------------
-void exercise8_7() {
+void lab1_ex8_7() {
 	int calories = 1500;
 	int trainings = 0;
 	int weeks = 0;
@@ -149,7 +118,7 @@ void exercise8_7() {
 }
 
 //-----------------------------------------------------------------------
-void exercise9_1() {
+void lab1_ex9_1() {
 
 	long A, B, C;
 	long buff[3];
@@ -209,7 +178,7 @@ void exercise9_1() {
 }
 
 //-----------------------------------------------------------------------
-void exercise11_1() {
+void lab1_ex11_1() {
 
 	long long natural, max, min, sum = 0, counter = 0;
 	double avg = 0;
@@ -247,7 +216,7 @@ void exercise11_1() {
 }
 
 //-----------------------------------------------------------------------
-void exercise11_2() {
+void lab1_ex11_2() {
 	// brute force method for finding Prime numbers.
 	// #TODO
 	int max = 100;
@@ -261,7 +230,7 @@ void exercise11_2() {
 }
 
 //-----------------------------------------------------------------------
-void exercise11_3() {
+void lab1_ex11_3() {
 
 	for (int i = 31; i < 52; i++) {
 		if (i % 2 == 0)
@@ -270,7 +239,7 @@ void exercise11_3() {
 }
 
 //-----------------------------------------------------------------------
-void exercise11_4() {
+void lab1_ex11_4() {
 
 	for (int i = 0; i < 101; i++) {
 		if (i % 4 == 0 && i % 8 != 0 && i % 10 != 0)
@@ -279,12 +248,12 @@ void exercise11_4() {
 }
 
 //-----------------------------------------------------------------------
-void exercise11_5() {
+void lab1_ex11_5() {
 
 	int years = 0;
 	const float income = 12000;
 	float savings = 0;
-	float interest = 0.05;
+	float interest = 0.05f;
 	const float goal = 200000;
 
 	while (savings < goal) {
@@ -296,7 +265,7 @@ void exercise11_5() {
 }
 
 //-----------------------------------------------------------------------
-void exercise11_6() {
+void lab1_ex11_6() {
 
 	for (int i = 1; i < 11; i++) {
 		for (int j = 1; j < 11; j++) {
@@ -307,66 +276,3 @@ void exercise11_6() {
 }
 
 //-----------------------------------------------------------------------
-void execute_exercise1(int arg) {
-
-	switch (arg) {
-
-	case 1:
-		exercise3_4();
-		break;
-
-	case 2:
-		exercise3_6();
-		break;
-
-	case 3:
-		exercise5_1();
-		break;
-
-	case 4:
-		exercise5_2();
-		break;
-
-	case 5:
-		exercise7_5();
-		break;
-
-	case 6:
-		exercise8_7();
-		break;
-
-	case 7:
-		exercise9_1();
-		break;
-
-	case 8:
-		exercise11_1();
-		break;
-
-	case 9:
-		exercise11_2();
-		break;
-
-	case 10:
-		exercise11_3();
-		break;
-
-	case 11:
-		exercise11_4();
-		break;
-
-	case 12:
-		exercise11_5();
-		break;
-
-	case 13:
-		exercise11_6();
-		break;
-
-	default:
-		cout << "\nUnknown exercise" << endl;
-		list_exercises1();
-		break;
-	}
-}
-

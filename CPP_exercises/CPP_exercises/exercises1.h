@@ -6,19 +6,17 @@
 #include <cmath>
 #include <string>
 
-void list_exercises1();
-void execute_exercise1(int arg);
 
-void exercise3_4();
-void exercise3_6();
-void exercise5_1();
-void exercise5_2();
-void exercise8_7();
-void exercise9_1();
+void lab1_ex3_4();
+void lab1_ex3_6();
+void lab1_ex5_1();
+void lab1_ex5_2();
+void lab1_ex8_7();
+void lab1_ex9_1();
 
-void exercise11_1();
-void exercise11_2();
-void exercise11_3();
-void exercise11_4();
-void exercise11_5();
-void exercise11_6();
+void lab1_ex11_1();
+void lab1_ex11_2();
+void lab1_ex11_3();
+void lab1_ex11_4();
+void lab1_ex11_5();
+void lab1_ex11_6();

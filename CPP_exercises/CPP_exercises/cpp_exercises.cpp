@@ -1,9 +1,10 @@
 /*
 	CPP EXERCISES
-	A series of programming exercises in C++ for the fourth semester of study.
+	A series of programming lab1_exs in C++ for the fourth semester of study.
 	Tomasz Wisniewski 2018.
 
-	Entry point.
+	Program entry point.
+
 */
 #include <iostream>
 #include <climits>
@@ -11,10 +12,12 @@
 
 #include "homework1.h"
 #include "exercises1.h"
+#include "exercises3.h"
 using namespace std;
 
 //-----------------------------------------------------------------------
-void menu() {
+// Notes about how to handle cin errors
+void cin_input_demo() {
 
 	string options[] = { "Homework 1" , "Exercises 1" };
 	cout << "Menu:" << endl;
@@ -38,42 +41,22 @@ void menu() {
 		else {
 			break;
 		}
+		
+		// execute action
 
 	} while (1);
-
-	switch (action) {
-	case 1:
-		list_homework1();
-		break;
-	case 2:
-		list_exercises1();
-		break;
-		/*
-	case 3:
-		break;
-	case 4:
-		break;
-	case 5:
-		break;
-	case 6:
-		break;
-	case 7:
-		break;
-		*/
-	default:
-		cout << "Wrong action." << endl;
-		break;
-	}
-
 
 }
 
 
 //-----------------------------------------------------------------------
+// Program entry point
 int main() {
+
+	srand(time(NULL));
 	cout << "~: C++ Exercises :~" << endl;
 
-	menu();
+	lab3_ex2();
 
 	system("pause");
 	return 0;
