@@ -11,7 +11,8 @@ struct position {
 
 struct player {
 	int ships = 4;
-	int shots = 0;
+	int shots = 0;			// actual shots
+	int random_shots = 0;	// random generator counter , for statistics
 };
 
 // -------------------------------------------------------------------
@@ -20,27 +21,34 @@ struct player {
 // 1 - ship
 // 2 - already shooted here
 // -------------------------------------------------------------------
-int shoot(player &curr_player, player &enemy_player, int** &enemy_map) {
+int shoot(player &current_player, player &enemy_player, int** &enemy_map) {
 
-	int col = random(10);
-	int row = random(10);
+	while (1) {
 
-	curr_player.shots += 1;
+		int col = random(10);
+		int row = random(10);
 
-	if (enemy_map[row][col] == 1) {
-		enemy_map[row][col] = 0;
-		enemy_player.ships -= 1;
+		current_player.random_shots += 1;
 
-		if (enemy_player.ships == 0) {
-			return 0;
+		if (enemy_map[row][col] != 2) { // shoot somewhere else
+
+			current_player.shots += 1;
+
+			if (enemy_map[row][col] == 1) { // ship is here
+				enemy_map[row][col] = 0;    // sunk it
+				enemy_player.ships -= 1;    // decrease ships counter
+
+				if (enemy_player.ships == 0)// any ships left ?
+					return 0;				// stop the loop
+				else
+					return 1;				// keep going
+			}
+			else if (enemy_map[row][col] == 0)	// it's empty 
+				enemy_map[row][col] = 2;		// mark this field
+			
+			return 1;
 		}
-		else return 1;
 	}
-	else if (enemy_map[row][col] == 0) {
-		enemy_map[row][col] = 2;
-	}
-	return 1;
-
 }
 
 
@@ -142,21 +150,23 @@ void gameplay_loop() {
 	//Player shoots to random positon. After each shoot players are swaped.
 	while (main_loop) {
 		// player turn
-		main_loop = shoot(players[current_player], players[!current_player] ,maps[!current_player]);
+		main_loop = shoot(players[current_player], players[!current_player], maps[!current_player]);
 		current_player = !current_player; //switch current player
 	}
 
 	display_maps(maps, MAP_SIZE); // after game
-	
-	cout << "Player 1: ships left: " << players[0].ships << endl;
-	cout << "Player 2: ships left: " << players[1].ships << endl;
 
-	if (players[0].ships > players[1].ships) {
-		cout << "Player 1 WIN!" << endl;
-	}
-	else {
-		cout << "Player 2 WIN!" << endl;
-	}
+	if (players[0].ships > players[1].ships) 
+		current_player = 0;
+	else
+		current_player = 1;
+
+	cout << "STATISTICS: " << endl;
+	cout << "Winner    : " << (current_player?"Player 2":"Player 1") << endl;
+	cout << "Shots     : " << players[current_player].shots << endl;
+	cout << "RNG tries : " << players[current_player].random_shots << endl;
+	cout << "Player 1  : ships left: " << players[0].ships << endl;
+	cout << "Player 2  : ships left: " << players[1].ships << endl;
 
 	// Clean up
 	for (int i = 0; i < PLAYERS; i++)
