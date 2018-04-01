@@ -1,5 +1,7 @@
 #pragma once
 
+int random(int range);
+
 void lab3_ex1();
 void lab3_ex2();
 void lab3_ex3();

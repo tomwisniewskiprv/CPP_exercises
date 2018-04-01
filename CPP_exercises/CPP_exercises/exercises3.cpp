@@ -17,9 +17,9 @@ http://www.tomaszx.pl/materialy/JPOiG_lab3.pdf
 #include <stack>
 using namespace std;
 
-// Random number generator for range 1-100
-int random() {
-	return rand() % 100 + 1;
+// Random number generator for range 0-100
+int random(int range) {
+	return rand() % range ;
 }
 
 bool vector_multiplication(int vector1[], int vector2[], int v1_size, int v2_size);
@@ -48,7 +48,7 @@ void lab3_ex1() {
 // Exercise 2
 void lab3_ex2() {
 
-	int number = random();
+	int number = random(100);
 	int rest = 0;
 	int buffer = number;
 	int power = 0;
@@ -58,7 +58,7 @@ void lab3_ex2() {
 	// dec2bin
 
 	while (1) {
-		tmp = pow(2, power);
+		tmp = static_cast<int>(pow(2, power));
 		if (number >= tmp)
 			power++;
 		else break;
@@ -148,7 +148,7 @@ bool vector_multiplication(int vector1[], int vector2[], int v1_size, int v2_siz
 void fill_vector(int* &vector, int size) {
 
 	for (int i = 0; i < size; i++) {
-		vector[i] = random();
+		vector[i] = random(100);
 	}
 }
 
@@ -156,7 +156,7 @@ void fill_vector(int* &vector, int size) {
 // Exercise 4
 void lab3_ex4() {
 
-	int rand = random();
+	int rand = random(100);
 	int guess = 0;
 
 	cout << "Zgadnij liczbe:";
