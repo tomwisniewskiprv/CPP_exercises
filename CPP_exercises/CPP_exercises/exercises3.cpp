@@ -7,7 +7,6 @@ Exercises 3 - Arrays
 http://www.tomaszx.pl/materialy/JPOiG_lab3.pdf
 */
 
-
 #include <iostream>
 #include <string>
 #include <iomanip>

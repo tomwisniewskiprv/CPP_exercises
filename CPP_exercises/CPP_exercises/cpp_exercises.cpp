@@ -14,10 +14,12 @@
 #include "exercises1.h"
 #include "exercises3.h"
 #include "exercises4.h"
+#include "exercises4_1.h"
 using namespace std;
 
 //-----------------------------------------------------------------------
 // Notes about how to handle cin errors
+//-----------------------------------------------------------------------
 void cin_input_demo() {
 
 	string options[] = { "Homework 1" , "Exercises 1" };
@@ -39,11 +41,8 @@ void cin_input_demo() {
 			cin.sync();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // !important for Visual Studio compiler...
 		}
-		else {
+		else 
 			break;
-		}
-		
-		// execute action
 
 	} while (1);
 
@@ -52,12 +51,14 @@ void cin_input_demo() {
 
 //-----------------------------------------------------------------------
 // Program entry point
+//-----------------------------------------------------------------------
 int main() {
 
 	srand(time(NULL));
 	cout << "~: C++ Exercises :~" << endl;
 
-	battleships();
+	//battleships();
+	lab4_ex2();
 
 	system("pause");
 	return 0;
