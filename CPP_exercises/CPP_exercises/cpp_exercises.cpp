@@ -15,6 +15,7 @@
 #include "exercises3.h"
 #include "exercises4.h"
 #include "exercises4_1.h"
+#include "exercises6_1_gr2.h"
 using namespace std;
 
 //-----------------------------------------------------------------------
@@ -61,6 +62,8 @@ int main() {
 	//lab4_ex2();
 	lab4_ex3();
 	lab4_ex6();
+	//lab6_1_ex3();
+	lab6_1_ex9();
 
 	system("pause");
 	return 0;
