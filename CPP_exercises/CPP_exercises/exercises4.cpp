@@ -21,12 +21,12 @@ struct player {
 // 1 - ship
 // 2 - already shooted here
 // -------------------------------------------------------------------
-int shoot(player &current_player, player &enemy_player, int** &enemy_map) {
+int shoot(player &current_player, player &enemy_player, int** &enemy_map, int map_size) {
 
 	while (1) {
 
-		int col = random(10);
-		int row = random(10);
+		int col = random(map_size);
+		int row = random(map_size);
 
 		current_player.random_shots += 1;
 
@@ -150,7 +150,7 @@ void gameplay_loop() {
 	//Player shoots to random positon. After each shoot players are swaped.
 	while (main_loop) {
 		// player turn
-		main_loop = shoot(players[current_player], players[!current_player], maps[!current_player]);
+		main_loop = shoot(players[current_player], players[!current_player], maps[!current_player] , MAP_SIZE);
 		current_player = !current_player; //switch current player
 	}
 

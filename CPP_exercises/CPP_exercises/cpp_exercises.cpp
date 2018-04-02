@@ -58,7 +58,9 @@ int main() {
 	cout << "~: C++ Exercises :~" << endl;
 
 	//battleships();
-	lab4_ex2();
+	//lab4_ex2();
+	lab4_ex3();
+	lab4_ex6();
 
 	system("pause");
 	return 0;

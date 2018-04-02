@@ -1,3 +1,5 @@
+#ifndef exercises1_h
+#define exercises1_h 
 #pragma once
 
 #include <iostream>
@@ -20,3 +22,5 @@ void lab1_ex11_3();
 void lab1_ex11_4();
 void lab1_ex11_5();
 void lab1_ex11_6();
+
+#endif

@@ -23,7 +23,7 @@ void lab4_ex2() {
 	int key = 0;
 
 	for (string k : keys)
-		cout << ++number << " "<< k << endl;
+		cout << ++number << " " << k << endl;
 
 	cout << "Wybierz klucz : ";
 	getline(cin, input);
@@ -59,10 +59,32 @@ void lab4_ex2() {
 
 	decoded += '\n';
 	cout << decoded << endl;
-
 }
 
 // Exercise 3 - lab4 - Simple substitution cipher
 void lab4_ex3() {
+	const int LETTERS = 26;
 	string encoded = "DOXQRIRGB MFBOTPWX LPLYX ALPQXGB MIRPFHX";
+	int key = 1;
+
+	for (int i = 0; i < LETTERS; i++, key++) {
+		for (int letter = 0; letter < (int)encoded.size(); letter++) {
+			if (encoded[letter] != 32)
+				cout << (char)(((encoded[letter] + key) % LETTERS) + 'A');
+			else cout << " ";
+		}
+
+		cout << endl;
+	}
+}
+
+// Exercise 6 - Immortal palindrom
+void lab4_ex6() {
+
+	string words[] = { "KAJAK" , "ABBA" , "Ala" , "AmMA" };
+
+	for (auto word : words) {
+		for (int start = 0, end = (int)(word.size() - 1); word[start] == word[end] && start <= (int)(word.size() / 2); start++, end--) 
+			if (start == end || start > end) cout << "Palindorm: " << word << endl;
+	}
 }
