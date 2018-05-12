@@ -58,12 +58,7 @@ int main() {
 	srand(time(NULL));
 	cout << "~: C++ Exercises :~" << endl;
 
-	//battleships();
-	//lab4_ex2();
-	lab4_ex3();
-	lab4_ex6();
-	//lab6_1_ex3();
-	lab6_1_ex9();
+	lab4_ex4();
 
 	system("pause");
 	return 0;
