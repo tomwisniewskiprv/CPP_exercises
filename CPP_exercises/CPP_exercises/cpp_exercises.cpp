@@ -16,6 +16,7 @@
 #include "exercises4.h"
 #include "exercises4_1.h"
 #include "exercises6_1_gr2.h"
+#include "exercises7.h"
 using namespace std;
 
 //-----------------------------------------------------------------------
@@ -58,7 +59,7 @@ int main() {
 	srand(time(NULL));
 	cout << "~: C++ Exercises :~" << endl;
 
-	lab4_ex4();
+	exercises7();
 
 	system("pause");
 	return 0;
